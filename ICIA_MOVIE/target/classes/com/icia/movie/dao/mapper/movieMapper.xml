@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Movie">
+	
+	<insert id="insert" parameterType="movie">
+		INSERT INTO MOVIES VALUES('MV'||LPAD(MOVIE_SEQ.NEXTVAL,4,0),  #{movName},  #{movDirector}, #{movGenre},  #{movGrade}, #{movOpen}, #{movStory}, #{movPoster, jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="count" resultType="int">
+		SELECT COUNT(*) FROM MOVIES
+	</select>
+	
+	<select id="list" parameterType="paging" resultType="movie">
+		SELECT * FROM MVLIST WHERE RN BETWEEN #{startRow} AND #{endRow} 
+	</select>
+	
+	<select id="mView" parameterType="String" resultType="movie">
+		SELECT * FROM MOVIES WHERE MOVCODE = #{movCode}
+	</select>
+
+</mapper>
