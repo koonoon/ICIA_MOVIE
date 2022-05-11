@@ -249,7 +249,7 @@
               
                <div class="col-md-12">
                 <div class="form-group">
-                  <label for="website" class="w-100"><span>영화 포스터</span>    
+                  <label for="website" class="w-100"><span>프로필 사진</span>    
                   <input type="file" class="form-control" name="mProfile">
                   </label>
                 </div>

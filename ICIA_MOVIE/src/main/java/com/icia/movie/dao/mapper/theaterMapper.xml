@@ -4,7 +4,7 @@
 <mapper namespace="Theater">
 
 	<insert id="insert" parameterType="theater">
-		INSERT INTO THEATERS VALUES('TH'||LPAD(THEATER_SEQ.NEXTVAL,2,0), #{thName}, #{thAddr})
+		INSERT INTO THEATERS VALUES('TH'||LPAD(THEATER_SEQ.NEXTVAL,2,0), #{thName}, #{thAddr}, #{thHall}, #{thSit})
 	</insert>
 
 </mapper>

@@ -315,6 +315,7 @@
   				success : function(list){
   					commentList(list);
   					$('#cComment').val("");
+  					alert('등록되었습니다.')
   				},
   				error : function(){
   					alert('댓글 입력 실패');

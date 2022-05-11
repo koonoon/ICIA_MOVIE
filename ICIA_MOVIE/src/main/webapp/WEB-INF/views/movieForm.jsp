@@ -252,7 +252,7 @@
 				<br/>
             </div><!-- Form row end -->
             <div class="clearfix">
-              <button class="btn btn-primary" type="submit" aria-label="post-comment">Post Comment</button>
+              <button class="btn btn-primary" type="submit" aria-label="post-comment">등록</button>
             </div>
           </form><!-- Form end -->
         </div><!-- Comments form end -->

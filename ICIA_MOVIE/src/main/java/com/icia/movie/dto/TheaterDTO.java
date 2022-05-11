@@ -5,6 +5,8 @@ public class TheaterDTO {
 	private String thCode;
 	private String thName;
 	private String thAddr;
+	private String thHall;
+	private String thSit;
 	public String getThCode() {
 		return thCode;
 	}
@@ -23,10 +25,25 @@ public class TheaterDTO {
 	public void setThAddr(String thAddr) {
 		this.thAddr = thAddr;
 	}
+	public String getThHall() {
+		return thHall;
+	}
+	public void setThHall(String thHall) {
+		this.thHall = thHall;
+	}
+	public String getThSit() {
+		return thSit;
+	}
+	public void setThSit(String thSit) {
+		this.thSit = thSit;
+	}
 	@Override
 	public String toString() {
-		return "TheaterDTO [thCode=" + thCode + ", thName=" + thName + ", thAddr=" + thAddr + "]";
+		return "TheaterDTO [thCode=" + thCode + ", thName=" + thName + ", thAddr=" + thAddr + ", thHall=" + thHall
+				+ ", thSit=" + thSit + "]";
 	}
+	
+	
 	
 	
 }

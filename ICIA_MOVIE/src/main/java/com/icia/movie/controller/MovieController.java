@@ -66,6 +66,23 @@ public class MovieController {
 		return mav;
 	}
 
+	//movModiForm
+	@RequestMapping(value="/movModiForm", method = RequestMethod.GET)
+	public ModelAndView movModiForm(@RequestParam("movCode")String movCode) {
+		
+		mav = mvsvc.movModiForm(movCode);
+		return mav;
+	}
 	
+	@RequestMapping(value = "/movieModify", method = RequestMethod.POST)
+	public ModelAndView movieModify(@ModelAttribute MovieDTO movie) throws IllegalStateException, IOException {
+		mav = mvsvc.movieModify(movie);
+		return mav;
+	}
 	
+	@RequestMapping(value ="movDelete", method = RequestMethod.GET)
+	public ModelAndView movDelete(@RequestParam("movCode")String movCode) {
+		mav = mvsvc.movDelete(movCode);
+		return mav;
+	}
 }

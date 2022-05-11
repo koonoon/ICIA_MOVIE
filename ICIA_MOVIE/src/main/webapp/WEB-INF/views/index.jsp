@@ -53,8 +53,8 @@
                 <h3 class="slide-title" data-animation-in="fadeIn">베네딕트 컴버배치, 엘리자베스 올슨</h3>
                 <h3 class="slide-sub-title" data-animation-in="slideInLeft">닥터 스트레인지: 대혼돈의 멀티버스</h3>
                 <p data-animation-in="slideInLeft" data-duration-in="1.2">
-                    <a href="services.html" class="slider btn btn-primary">Our Services</a>
-                    <a href="contact.html" class="slider btn btn-primary border">Contact Now</a>
+                    <a href="movies" class="slider btn btn-primary">영화정보</a>
+                    <a href="" class="slider btn btn-primary border">예매하기</a>
                 </p>
               </div>
           </div>

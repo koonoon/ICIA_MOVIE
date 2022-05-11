@@ -97,7 +97,7 @@
 		                      <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
 		                      <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
 		                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
-		                      
+		                      <li class="nav-item"><a class="nav-link" href="theaterList">극장목록</a></li>
 		                    </ul>
 						</c:if>
 						
@@ -107,7 +107,8 @@
 			                      <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
 			                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
 			                      <li class="nav-item"><a class="nav-link" href="movieForm">영화등록</a></li>
-			                      <li class="nav-item"><a class="nav-link" href="theaterForm">영화관등록</a></li>
+			                      <li class="nav-item"><a class="nav-link" href="theaterForm">극장등록</a></li>
+			                      <li class="nav-item"><a class="nav-link" href="schedulesForm">시간표등록</a></li>
 			                  </ul>
 						
 						</c:if>
@@ -115,7 +116,8 @@
 							<ul class="nav navbar-nav mr-auto">
 				                  <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
 				                  <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
-				                  <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>				                  
+				                  <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
+				                  <li class="nav-item"><a class="nav-link" href="theaterList">극장목록</a></li>				                  
 				           	</ul>
 						</c:if>
                   

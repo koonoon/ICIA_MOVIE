@@ -187,7 +187,7 @@
         <div class="row">
           <div class="col-lg-12">
               <div class="banner-heading">
-                <h1 class="banner-title">영화관 등록</h1>
+                <h1 class="banner-title">영화 등록</h1>
               
               </div>
           </div><!-- Col end -->
@@ -202,40 +202,59 @@
     
 
         <div class="comments-form border-box">
-          <h3 class="title-normal">영화관 등록</h3>
-		<form action="theaterInsert" method="POST" enctype="multipart/form-data"  role="form">
+          <h3 class="title-normal">영화 등록</h3>
+		<form action="movieModify" method="POST" enctype="multipart/form-data"  role="form">
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="name" class="w-100"><span>영화관 이름</span>
-                  <input class="form-control"id="name" placeholder="영화관이름" type="text" required name="thName"></label>
+                  <label for="name" class="w-100"><span>영화 제목</span>
+                  <input class="form-control"id="name" placeholder="영화 제목" type="text" required name="movName"></label>
                 </div>
               </div><!-- Col 4 end -->
 				<br/>
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="addr" class="w-100"><span>영화관 주소</span>
-                  <input class="form-control" id="addr" placeholder="영화관주소" type="text" required name="thAddr"></label>
+                  <label for="email" class="w-100"><span>영화 감독</span>
+                  <input class="form-control" id="email" placeholder="영화 감독" type="text" required name="movDirector"></label>
                 </div>
               </div>
 				<br/>
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="hall" class="w-100"><span>상영관 수</span>
-                  <input class="form-control" id="hall" placeholder="상영관 수" type="text" required name="thHall"></label>
+                  <label for="website" class="w-100"><span>영화 장르</span>
+                  <input class="form-control" id="website" placeholder="장르" type="text" required name="movGenre"></label>
                 </div>
               </div>
-              	<br/>
-              	<div class="col-md-12">
+              <div class="col-md-12">
                 <div class="form-group">
-                  <label for="sit" class="w-100"><span>좌석 수</span>
-                  <input class="form-control" id="sit" placeholder="좌석 수" type="text" required name="thSit"></label>
+                  <label for="website" class="w-100"><span>영화 관람등급</span>
+                  <input class="form-control" id="website" placeholder="관람등급(나이)" type="number" required name="movGrade"></label>
                 </div>
               </div>
-              <br/>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="website" class="w-100"><span>영화 개봉일</span>
+                  <input class="form-control" id="website"  type="date" required name="movOpen"></label>
+                </div>
+              </div>
+               <div class="col-md-12">
+                <div class="form-group">
+                  <label for="website" class="w-100"><span>영화 줄거리</span>
+                  <textarea class="form-control" id="website"  required name="movStory"></textarea></label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="website" class="w-100"><span>영화 포스터</span>    
+                  <input class="form-control" id="website" placeholder="Your Website" type="file" required name="movPosterFile"></label>
+                </div>
+              </div>
+				<br/>
+            </div><!-- Form row end -->
             <div class="clearfix">
-              <button class="btn btn-primary" type="submit" aria-label="post-comment">등록</button>
+              <button class="btn btn-primary" type="submit" aria-label="post-comment">수정</button>
             </div>
+            <input type="hidden" value="${modi.movCode}" name="movCode"/>
           </form><!-- Form end -->
         </div><!-- Comments form end -->
       

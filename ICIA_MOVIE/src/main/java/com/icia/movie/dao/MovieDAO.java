@@ -37,6 +37,16 @@ public class MovieDAO {
 		return sql.selectOne("Movie.mView", movName);
 	}
 
+	public int movieModify(MovieDTO movie) {
+		// TODO Auto-generated method stub
+		return sql.update("Movie.modi", movie);
+	}
+
+	public int movDelete(String movCode) {
+		// TODO Auto-generated method stub
+		return sql.delete("Movie.delete", movCode);
+	}
+
 	
 
 }

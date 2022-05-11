@@ -57,7 +57,7 @@ public class MemberService {
 
 		String fileName = uuid.toString().substring(0, 8) + "_" + mProfile.getOriginalFilename();
 
-		String filePath = "C:/Users/user/Documents/SpringWorkspace/MemBoardProject/src/main/webapp/resources/profile/"
+		String filePath = "C:/Users/user/git/ICIA_MOVIE/ICIA_MOVIE/src/main/webapp/resources/profile/"
 				+ fileName;
 //		String savePath = "D:/SpringProject/SpringWorkspace/MemBoardProject/src/main/webapp/resources/profile/"+fileName;
 

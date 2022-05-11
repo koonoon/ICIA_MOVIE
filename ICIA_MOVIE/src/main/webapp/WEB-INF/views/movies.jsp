@@ -177,9 +177,13 @@
 						<p>개봉일 : ${mov.movOpen}</p>
 						<p>관람등급 : ${mov.movGrade}세 이상 관람가</p>
 	                  <a class="learn-more d-inline-block"  aria-label="service-details">장르 : ${mov.movGenre}</a>
-	              
+	              		
 	              </div>
 	            </div>
+	            <c:if test="${login.mId eq 'admin'}">
+	            <input type="button" value="수정" onclick="location.href='movModiForm?movCode=${mov.movCode}'"/>
+	            <input type="button" value="삭제" onclick="location.href='movDelete?movCode=${mov.movCode}'"/>
+	            </c:if>
 	        </div><!-- Service1 end -->
 	      </div><!-- Col 1 end -->
 	 </c:forEach>

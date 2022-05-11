@@ -19,5 +19,14 @@
 	<select id="mView" parameterType="String" resultType="movie">
 		SELECT * FROM MOVIES WHERE MOVCODE = #{movCode}
 	</select>
+	
+	<update id="modi" parameterType="movie">
+	 	UPDATE MOVIES SET MOVNAME=#{movName}, MOVDIRECTOR=#{movDirector}, MOVGENRE=#{movGenre}, MOVGRADE=#{movGrade},
+	 		MOVOPEN=#{movOpen}, MOVSTORY=#{movStory}, MOVPOSTER=#{movPoster}
+	 	WHERE MOVCODE=#{movCode}
+	</update>
 
+	<delete id="delete" parameterType="String">
+		DELETE FROM MOVIES WHERE MOVCODE=#{movCode}
+	</delete>
 </mapper>

@@ -32,7 +32,7 @@ public class MovieService {
 		MultipartFile mPosterFile = movie.getMovPosterFile();
 		String fileName = uuid.toString().substring(0,8)+"_"+mPosterFile.getOriginalFilename();
 
-		String filePath = "C:/Users/user/SpringWorkSpace/ICIA_MOVIE/src/main/webapp/resources/poster/"+fileName;
+		String filePath = "C:/Users/user/git/ICIA_MOVIE/ICIA_MOVIE/src/main/webapp/resources/poster/"+fileName;
 //		String filePath = "D:/SpringProject/SpringWorkspace/ICIA_MOVIE/src/main/webapp/resources/poster/"+fileName;
 		
 		
@@ -101,6 +101,49 @@ public class MovieService {
 		mav.setViewName("mView");
 		mav.addObject("view", movie);
 		
+		return mav;
+	}
+
+	public ModelAndView movModiForm(String movCode) {
+		MovieDTO movie = mvdao.mView(movCode);
+		
+		mav.addObject("modi", movie);
+		mav.setViewName("movieModify");
+		return mav;
+	}
+
+	public ModelAndView movieModify(MovieDTO movie) throws IllegalStateException, IOException {
+		UUID uuid = UUID.randomUUID();
+		
+		MultipartFile mPosterFile = movie.getMovPosterFile();
+		String fileName = uuid.toString().substring(0,8)+"_"+mPosterFile.getOriginalFilename();
+
+		String filePath = "C:/Users/user/git/ICIA_MOVIE/ICIA_MOVIE/src/main/webapp/resources/poster/"+fileName;
+
+		if(!mPosterFile.isEmpty()) {
+			mPosterFile.transferTo(new File(filePath));
+			movie.setMovPoster(fileName);
+		}
+
+		int result = mvdao.movieModify(movie);
+		if(result > 0) {
+			mav.setViewName("index");
+		}else {
+			mav.setViewName("index");
+		}
+		System.out.println("[4]"+movie);
+		
+		return mav;
+	}
+
+	public ModelAndView movDelete(String movCode) {
+		int result = mvdao.movDelete(movCode);
+		
+		if(result>0) {
+			mav.setViewName("index");
+		} else {
+			mav.setViewName("index");
+		}
 		return mav;
 	}
 
