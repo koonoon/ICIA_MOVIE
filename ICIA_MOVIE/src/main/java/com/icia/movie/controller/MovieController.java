@@ -85,4 +85,10 @@ public class MovieController {
 		mav = mvsvc.movDelete(movCode);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/movieReserve", method = RequestMethod.GET)
+	public ModelAndView movieReserve(){
+		mav = mvsvc.movieReserve();
+		return mav;
+	}
 }

@@ -187,7 +187,7 @@
         <div class="row">
           <div class="col-lg-12">
               <div class="banner-heading">
-                <h1 class="banner-title">시간표 등록</h1>
+                <h1 class="banner-title">영화관 등록</h1>
               
               </div>
           </div><!-- Col end -->
@@ -202,60 +202,41 @@
     
 
         <div class="comments-form border-box">
-          <h3 class="title-normal">시간 등록</h3>
-		<form action="schedulesInsert" method="POST" enctype="multipart/form-data"  role="form">
+          <h3 class="title-normal">영화관 등록</h3>
+		<form action="theaterModify" method="POST" enctype="multipart/form-data"  role="form">
             <div class="row">
-            
-            	
-                  
-            <div class="col-md-12">
-                <div class="form-group">
-                  <label for="website" class="w-100"><span>영화</span>
-                  </label>
-                
-                  <select name="movName" onChange="changemovCode(this.value);">
-                  <c:forEach items="${movieList}" var="mov">
-                  
-                  	<option value="${mov.movCode}">${mov.movName}</option>
-                  
-                 </c:forEach>
-                 </select>
-               
-                  <input class="select-02" id="movieList" 
-                  required name="${mov.movName}">
-                  
-                  
-                  
-                </div>
-                 
-              </div>
-              
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="website" class="w-100"><span>영화 장르</span>
-                  <input class="form-control" id="website" placeholder="장르" type="text" required name="movGenre"></label>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="schall" class="w-100"><span>상영관</span>
-                  <input class="form-control"id="schall" placeholder="상영관" type="text" required name="scHall"></label>
+                  <label for="name" class="w-100"><span>영화관 이름</span>
+                  <input class="form-control"id="name" placeholder="영화관이름" type="text" required name="thName"></label>
                 </div>
               </div><!-- Col 4 end -->
 				<br/>
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="sctime" class="w-100"><span>상영시간</span>
-                  <input class="form-control" id="sctime" placeholder="상영시간" type="time" required name="scTime"></label>
+                  <label for="addr" class="w-100"><span>영화관 주소</span>
+                  <input class="form-control" id="addr" placeholder="영화관주소" type="text" required name="thAddr"></label>
                 </div>
               </div>
 				<br/>
-              
-				<br/>
-            </div><!-- Form row end -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="hall" class="w-100"><span>상영관 수</span>
+                  <input class="form-control" id="hall" placeholder="상영관 수" type="text" required name="thHall"></label>
+                </div>
+              </div>
+              	<br/>
+              	<div class="col-md-12">
+                <div class="form-group">
+                  <label for="sit" class="w-100"><span>좌석 수</span>
+                  <input class="form-control" id="sit" placeholder="좌석 수" type="text" required name="thSit"></label>
+                </div>
+              </div>
+              <br/>
             <div class="clearfix">
-              <button class="btn btn-primary" type="submit" aria-label="post-comment">Post Comment</button>
+              <button class="btn btn-primary" type="submit" aria-label="post-comment">등록</button>
             </div>
+            <input type="hidden" value="${modi.thCode}" name="thCode"/>
           </form><!-- Form end -->
         </div><!-- Comments form end -->
       

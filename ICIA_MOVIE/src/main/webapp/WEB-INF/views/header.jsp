@@ -24,7 +24,7 @@
   
             <div class="col-lg-9 header-right">
                 <ul class="top-info-box">
-                <c:if test="${not empty login.mId}">
+                <c:if test="${not empty login.mId && login.mId ne 'admin'}">
 	                 <li>
 	                    <div class="info-box">
 	                      <div class="info-box-content">
@@ -92,22 +92,23 @@
                 <div id="navbar-collapse" class="collapse navbar-collapse">
                 	
 			
-					<c:if test="${not empty login.mId}">
+					<c:if test="${not empty login.mId && login.mId ne 'admin'}">
 							<ul class="nav navbar-nav mr-auto">
 		                      <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
-		                      <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
+		                      <li class="nav-item"><a class="nav-link" href="movieReserve">예매하기</a></li>
 		                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
-		                      <li class="nav-item"><a class="nav-link" href="theaterList">극장목록</a></li>
+		                      
 		                    </ul>
 						</c:if>
 						
 						<c:if test="${login.mId eq 'admin'}">
 							  <ul class="nav navbar-nav mr-auto">
 			                      <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
-			                      <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
+			                      <li class="nav-item"><a class="nav-link" href="movieReserve">예매하기</a></li>
 			                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
 			                      <li class="nav-item"><a class="nav-link" href="movieForm">영화등록</a></li>
-			                      <li class="nav-item"><a class="nav-link" href="theaterForm">극장등록</a></li>
+			                      <li class="nav-item"><a class="nav-link" href="theaterForm">영화관등록</a></li>
+			                      <li class="nav-item"><a class="nav-link" href="TheaterList">영화관목록</a></li>
 			                      <li class="nav-item"><a class="nav-link" href="schedulesForm">시간표등록</a></li>
 			                  </ul>
 						
@@ -115,9 +116,8 @@
 						<c:if test="${empty login.mId}">
 							<ul class="nav navbar-nav mr-auto">
 				                  <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
-				                  <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
-				                  <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
-				                  <li class="nav-item"><a class="nav-link" href="theaterList">극장목록</a></li>				                  
+				                  <li class="nav-item"><a class="nav-link" href="movieReserve">예매하기</a></li>
+				                  <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>				                  
 				           	</ul>
 						</c:if>
                   

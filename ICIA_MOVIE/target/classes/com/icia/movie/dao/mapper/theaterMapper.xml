@@ -7,4 +7,20 @@
 		INSERT INTO THEATERS VALUES('TH'||LPAD(THEATER_SEQ.NEXTVAL,2,0), #{thName}, #{thAddr}, #{thHall}, #{thSit})
 	</insert>
 
+	<select id="list" resultType="theater">
+		SELECT * FROM THEATERS
+	</select>
+	
+	<delete id="delete" parameterType="String">
+		DELETE FROM THEATERS WHERE THCODE = #{thCode}
+	</delete>
+	
+	<select id="view" parameterType="String" resultType="theater">
+		SELECT * FROM THEATERS WHERE THCODE = #{thCode}
+	</select>
+	
+	<update id="modi" parameterType="theater">
+		UPDATE THEATERS SET THNAME = #{thName}, THADDR = #{thAddr}, THHALL = #{thHall}, THSIT = #{thSit} 
+		WHERE THCODE = #{thCode}
+	</update>
 </mapper>

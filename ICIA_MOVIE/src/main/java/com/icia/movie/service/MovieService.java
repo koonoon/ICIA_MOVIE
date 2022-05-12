@@ -146,5 +146,13 @@ public class MovieService {
 		}
 		return mav;
 	}
+	
+	public ModelAndView movieReserve() {
+		List<MovieDTO> mBook = mvdao.mBook();
+		
+		mav.setViewName("movieReserve");
+		mav.addObject("mBook",mBook);
+		return mav;
+	}
 
 }

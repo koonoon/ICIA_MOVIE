@@ -29,4 +29,9 @@
 	<delete id="delete" parameterType="String">
 		DELETE FROM MOVIES WHERE MOVCODE=#{movCode}
 	</delete>
+	
+	<select id="mBook" resultType="movie">
+		SELECT * FROM MOVIES
+	</select>
+	
 </mapper>

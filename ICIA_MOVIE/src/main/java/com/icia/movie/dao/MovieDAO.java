@@ -47,6 +47,10 @@ public class MovieDAO {
 		return sql.delete("Movie.delete", movCode);
 	}
 
+	public List<MovieDTO> mBook() {
+		
+		return sql.selectList("Movie.mBook");
+	}
 	
 
 }

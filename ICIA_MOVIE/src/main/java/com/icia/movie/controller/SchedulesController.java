@@ -10,11 +10,12 @@ import com.icia.movie.service.SchedulesService;
 
 @Controller
 public class SchedulesController {
-
-	private ModelAndView mav = new ModelAndView();
 	
 	@Autowired
 	private SchedulesService scsvc;
+	
+	private ModelAndView mav = new ModelAndView();
+	
 	
 	@RequestMapping(value = "/schedulesForm", method = RequestMethod.GET)
 	public String schedulesForm() {

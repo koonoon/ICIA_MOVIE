@@ -8,6 +8,7 @@ public class SchedulesDTO {
 	private Date scTime;
 	private String scthCode;
 	private String scmovCode;
+	
 	public String getScHall() {
 		return scHall;
 	}

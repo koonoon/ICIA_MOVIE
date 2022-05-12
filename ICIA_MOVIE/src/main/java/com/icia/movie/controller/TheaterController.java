@@ -36,7 +36,33 @@ public class TheaterController {
 			return mav;
 		}
 		
-	
+		@RequestMapping(value = "/TheaterList", method = RequestMethod.GET)
+		public ModelAndView TheaterList(){
+			
+			System.out.println("[1]");
+			mav = thsvc.TheaterList();
+			
+			System.out.println("[5]"+mav);
+			return mav;
+		}
 		
+		@RequestMapping(value ="/thDelete", method = RequestMethod.GET)
+		public ModelAndView thDelete(@RequestParam("thCode")String thCode) {
+			mav = thsvc.thDelete(thCode);
+			return mav;
+		}
+		
+		// thModiForm
+		@RequestMapping(value = "/thModiForm", method = RequestMethod.GET)
+		public ModelAndView thModiForm(@RequestParam("thCode")String thCode) {
+			mav = thsvc.thModiForm(thCode);
+			return mav;
+		}
+		
+		@RequestMapping(value = "/theaterModify", method = RequestMethod.POST)
+		public ModelAndView theaterModify(@ModelAttribute TheaterDTO theater) {
+			mav = thsvc.theaterModify(theater);
+			return mav;
+		}
 		
 }
