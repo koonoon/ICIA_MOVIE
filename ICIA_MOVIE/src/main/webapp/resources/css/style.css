@@ -3345,7 +3345,20 @@ label {
 	margin-bottom: 50px;
 }
 
+#commentArea{
+	display: block;
+	justify-content:center;
+	align-items: center;
+	margin-bottom: 50px;	
+}
+
+#commentArea table{
+	width: 100vw;
+	margin-bottom: 50px;
+}
+
 .comments-form {
+	
   margin-bottom: 0;
   
 }

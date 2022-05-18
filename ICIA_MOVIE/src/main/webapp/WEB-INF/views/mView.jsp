@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,12 +34,22 @@
   <!-- Colorbox -->
   <link rel="stylesheet" href="resources/plugins/colorbox/colorbox.css">
   <!-- Template styles-->
-  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/style.css?ver=3">
+  <link rel="stylesheet" href="resources/css/star.css?ver=1">
+  <link href="resources/css/regist-form.css" rel="stylesheet">
+  
+  <style type="text/css">
+  	#nav {
+	width: 500px;
+	text-align: center;
 
+}
+  </style>
 </head>
 <body>
+  <content class="comm-frame">
   <div class="body-inner">
-  
+
 <jsp:include page="header.jsp"></jsp:include>
 
 <div id="banner-area" class="banner-area" style="background-image:url(resources/images/banner/a.PNG)">
@@ -59,7 +70,7 @@
 <section id="main-container" class="main-container">
   <div class="container">
     <div class="row">
-
+<!-- 
       <div class="col-xl-3 col-lg-4">
         <div class="sidebar sidebar-left">
           <div class="widget">
@@ -72,7 +83,7 @@
               <li><a href="#">Renovation</a></li>
               <li><a href="#">Safety Management</a></li>
             </ul>
-          </div><!-- Widget end -->
+          </div>Widget end
 
           <div class="widget">
             <div class="quote-item quote-border">
@@ -87,13 +98,13 @@
                   <span class="quote-subtext">CEO, First Choice Group</span>
                 </div>
               </div>
-            </div><!-- Quote item end -->
+            </div>Quote item end
 
-          </div><!-- Widget end -->
+          </div>Widget end
 
-        </div><!-- Sidebar end -->
-      </div><!-- Sidebar Col end -->
-
+        </div>Sidebar end
+      </div>Sidebar Col end
+ -->
       <div class="col-xl-8 col-lg-8">
         <div class="content-inner-page">
 
@@ -124,12 +135,21 @@
                 <li>장르 : ${view.movGenre}</li>
                 <li>관람등급 : ${view.movGrade}</li>
                 <li>개봉일 : ${view.movOpen}</li>
+               
               </ul>
+               	<li class="header-get-a-quote" style="list-style-type: none;">
+                    	<a class="btn btn-primary" href="movieModify?movCode=${view.movCode}">수정</a>
+                    	<a class="btn btn-primary" href="mView/delete?movCode=${view.movCode}">삭제</a>
+                  	  </li>
             </div>
 
             <div class="col-md-6 mt-5 mt-md-0">
               <h3 class="column-title-small">한줄평</h3>
-
+              <span class="star">
+					  ★★★★★
+					  <span>★★★★★</span>
+					  <input type="range" oninput="drawStar(this)" value="0" step="0.5" min="0" max="5">
+					</span>
               <div class="accordion accordion-group accordion-classic" id="construction-accordion">
                 <div class="card">
                   <div class="card-header p-0 bg-transparent" id="headingOne">
@@ -139,10 +159,15 @@
                         한줄평
                       </button>
                     </h2>
+                    
                   </div>
-
+                  
+				
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                     data-parent="#construction-accordion" class='commWrite'>
+                             
+                    
+										
                     <textarea rows="5" cols="40" id="cComment"></textarea>
                     <button id="commBtn">등록</button>
                   </div>
@@ -150,16 +175,29 @@
                 </div>     
                   </div>
                 </div>
+                
               </div>
+                       	
+            	
+            	<form id="setRows">
+			
+					<input type="hidden" name="rowPerPage" value="5">
+		
+				</form>
+              <div id="commentArea" ></div>
+          
               <!--/ Accordion end -->
             </div>
           </div>
           <!--2nd row end -->
          
-         <div id="commentArea"></div>
+         
 		
 		<input type="hidden" name="movCode" id="movCode" value="${view.movCode}"/>
-         
+     	</div>
+      </div>
+      </section>  
+      
 
   <footer id="footer" class="footer bg-overlay">
     <div class="footer-main">
@@ -266,17 +304,54 @@
 
   <!-- Template custom -->
   <script src="resources/js/script.js"></script>
-
+  <script defer src="resources/js/star.js?ver=6"></script>
+  
   </div><!-- Body inner end -->
+  </content>
   </body>
   
   <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   
-  <script>
+ <script>
+
+ const modal2 = document.createElement("div");
+ const messageBox = document.createElement("div");
+ const messageBtn = document.createElement("button");
+ const message = document.createElement("span");
+ const content = document.querySelector(".comm-frame");
+ const input = document.createElement("input");
+ input.value = "";
+
+
+
+ function popUpMessage(){
+ 	modal2.className = "modal2";
+ 	messageBox.id = "message-box";
+ 	messageBtn.id = "popup-button";
+ 	
+ 	messageBtn.innerText = "확인";
+ 	
+ 	content.appendChild(modal2);
+	modal2.appendChild(messageBox);
+	messageBox.appendChild(message);
+	messageBox.appendChild(messageBtn);
+
+ 		message.innerText = "로그인 이후 가능합니다";
+ 		messageBtn.focus();
+ 		
+ 		messageBtn.addEventListener("click",()=> {
+ 			
+ 			location.href='loginForm';
+ 		});	
+ 	
+ }
+
+ 
+ 
+  
   	$(document).ready(function(){
+  	  
   		var cmCode = $('#movCode').val();
   		
   		console.log('hidden으로 보낸 movCode : ' + cmCode);
@@ -294,28 +369,33 @@
   			}
   		});
   	});
+  	
+  	
   
   	var loginId = '${login.mId}';
   	
   	$('#commBtn').click(function(){
   		if(!loginId){
-  			alert('로그인 이후 가능합니다');
+  			popUpMessage();
   		} else {
+  			var auto = setTimeout(function(){ $setRows.submit(); }, 100);
+  			
   			var cWriter = loginId;
   			var cComment = $('#cComment').val();
   			var cmCode = $('#movCode').val();
-  			
+  			/* var starScore = $('.star span').style.width = `${target.value * 20}%` */
+  			console.log("ajax star"+starScore);
   			$.ajax({
   				type : "POST",
   				url : "comment/cWrite",
   				data : {"cWriter" : cWriter,
   						"cmCode" : cmCode,
-  						"cComment" : cComment},
+  						"cComment" : cComment,
+  						"cStarScore" : starScore},
   				dataType : "json",
   				success : function(list){
   					commentList(list);
   					$('#cComment').val("");
-  					alert('등록되었습니다.')
   				},
   				error : function(){
   					alert('댓글 입력 실패');
@@ -327,32 +407,123 @@
   	
   	function commentList(list){
   		var output = "";
+
   		
-  		output += "<table>";
+  		/* output += "<form action='' id='setRows'> <input type='text' name='rowPerPage' value='5'> </form>"; */
+  		output += "<table id='products'>";
   		
+  		output += "<thead>"; 		
   		output += "<tr>";
   		output += "<th>작성자</th>";
   		output += "<th>내용</th>";
   		output += "<th>작성일</th>";
+  		output += "<th>별점</th>";
   		output += "</tr>";
+  		output += "</thead>";
   		
+  		output += "<tbody>";
   		for(var i in list){
   			output += "<tr>";
   			output += "<td>" + list[i].cWriter + "</td>";
   			output += "<td>" + list[i].cComment + "</td>";
   			output += "<td>" + list[i].cDate + "</td>";
+  			output += "<td>" +
+  			"<span class='star'>" + "★★★★★" 
+  			+ "<span style='width:" + (list[i].cStarScore*10)*2 + "%'>" + "★★★★★" + "</span>"
+  		  	+ "</span>" 
+  		  	+ "</td>";
   			output += "</tr>";
   		}
+  		output += "</tbody>";
   		output += "</table>";
   		
-  		var commentArea = document.getElementById('commentArea');
   		
+  		var commentArea = document.getElementById('commentArea');  		
   		commentArea.innerHTML = output;
   		
   	}
   	
   	
+  	var $setRows = $('#setRows');
+  	console.log(" $setRows : "+ $setRows);
+  	$setRows.submit(function (e) {
+    	e.preventDefault();
+    	var rowPerPage = $("[name='rowPerPage']").val() * 1;// 1 을  곱하여 문자열을 숫자형로 변환
+	  	console.log("rowPerPage : "+rowPerPage);
+
+    	var zeroWarning = 'Sorry, but we cat\'t display "0" rows page. + \nPlease try again.'
+    	if (!rowPerPage) {
+    		alert(zeroWarning);
+    		return;
+    	}
+    	$('#nav').remove();
+    	var $products = $('#products');
+
+    	$products.after('<div id="nav">');
+
+
+    	var $tr = $($products).find('tbody tr');
+    	var rowTotals = $tr.length;
+    	console.log(rowTotals);
+
+    	var pageTotal = Math.ceil(rowTotals/ rowPerPage);
+    	var i = 0;
+
+    	for (; i < pageTotal; i++) {
+    		$('<a href="#"></a>')
+    				.attr('rel', i)
+    				.html(i + 1)
+    				.appendTo('#nav');
+    	}
+
+    	$tr.addClass('off-screen')
+    			.slice(0, rowPerPage)
+    			.removeClass('off-screen');
+
+    	var $pagingLink = $('#nav a');
+    	$pagingLink.on('click', function (evt) {
+    		evt.preventDefault();
+    		var $this = $(this);
+    		if ($this.hasClass('active')) {
+    			return;
+    		}
+    		$pagingLink.removeClass('active');
+    		$this.addClass('active');
+
+    		// 0 => 0(0*4), 4(0*4+4)
+    		// 1 => 4(1*4), 8(1*4+4)
+    		// 2 => 8(2*4), 12(2*4+4)
+    		// 시작 행 = 페이지 번호 * 페이지당 행수
+    		// 끝 행 = 시작 행 + 페이지당 행수
+
+    		var currPage = $this.attr('rel');
+    		var startItem = currPage * rowPerPage;
+    		var endItem = startItem + rowPerPage;
+
+    		$tr.css('opacity', '0.0')
+    				.addClass('off-screen')
+    				.slice(startItem, endItem)
+    				.removeClass('off-screen')
+    				.animate({opacity: 1}, 300);
+
+    	});
+
+    	$pagingLink.filter(':first').addClass('active');
+
+    });
+
+	
+    $setRows.submit();
+    
+    
+    window.onload=function(){
+	    var auto = setTimeout(function(){ $setRows.submit(); }, 100);
+	    
+
+    } 
+  	
   </script>
+ 
   
   
 

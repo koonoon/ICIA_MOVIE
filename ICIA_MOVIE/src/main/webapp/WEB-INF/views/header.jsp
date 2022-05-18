@@ -107,9 +107,8 @@
 			                      <li class="nav-item"><a class="nav-link" href="movieReserve">예매하기</a></li>
 			                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
 			                      <li class="nav-item"><a class="nav-link" href="movieForm">영화등록</a></li>
-			                      <li class="nav-item"><a class="nav-link" href="theaterForm">영화관등록</a></li>
-			                      <li class="nav-item"><a class="nav-link" href="TheaterList">영화관목록</a></li>
-			                      <li class="nav-item"><a class="nav-link" href="schedulesForm">시간표등록</a></li>
+			                      <li class="nav-item"><a class="nav-link" href="theaterForm">상영관 등록</a></li>
+			                      <li class="nav-item"><a class="nav-link" href="thList2">스케줄 등록</a></li>
 			                  </ul>
 						
 						</c:if>

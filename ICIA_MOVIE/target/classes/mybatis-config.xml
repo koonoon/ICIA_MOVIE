@@ -13,7 +13,8 @@
 	<typeAlias type="com.icia.movie.dto.MovieDTO" alias="movie"/>
 	<typeAlias type="com.icia.movie.dto.CommentDTO" alias="comm"/>
 	<typeAlias type="com.icia.movie.dto.TheaterDTO" alias="theater"/>
-	<typeAlias type="com.icia.movie.dto.SchedulesDTO" alias="schedules"/>
+	<typeAlias type="com.icia.movie.dto.SchedulesDTO" alias="schedule"/>
+	<typeAlias type="com.icia.movie.dto.ReserveDTO" alias="reserve"/>
 </typeAliases>
 
 </configuration>

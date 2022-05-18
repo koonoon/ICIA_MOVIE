@@ -87,8 +87,12 @@ public class MovieService {
 		paging.setLimit(limit);
 
 		List<MovieDTO> movieDTO = mvdao.movieList(paging);
-
+		// 댓글이 없는 경우
+		List<MovieDTO> movieDTO2 = mvdao.movieList2(paging);
+		System.out.println("movieDTO : "+movieDTO);
+			
 		mav.addObject("movieList", movieDTO);
+		mav.addObject("movieList2", movieDTO2);
 		mav.addObject("paging", paging);
 		mav.setViewName("movies");
 		System.out.println("[4]" + movieDTO);
@@ -104,46 +108,55 @@ public class MovieService {
 		return mav;
 	}
 
-	public ModelAndView movModiForm(String movCode) {
-		MovieDTO movie = mvdao.mView(movCode);
-		
-		mav.addObject("modi", movie);
-		mav.setViewName("movieModify");
-		return mav;
-	}
-
 	public ModelAndView movieModify(MovieDTO movie) throws IllegalStateException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("[2]영화수정 : "+movie);
 		UUID uuid = UUID.randomUUID();
 		
 		MultipartFile mPosterFile = movie.getMovPosterFile();
 		String fileName = uuid.toString().substring(0,8)+"_"+mPosterFile.getOriginalFilename();
 
-		String filePath = "C:/Users/user/git/ICIA_MOVIE/ICIA_MOVIE/src/main/webapp/resources/poster/"+fileName;
+		String filePath = "C:/Users/user/git/ICIA_MOVIE/ICIA_MOVIE/src/main/webapp/resources/poster/"+ fileName;
 
 		if(!mPosterFile.isEmpty()) {
 			mPosterFile.transferTo(new File(filePath));
 			movie.setMovPoster(fileName);
 		}
 
+		
 		int result = mvdao.movieModify(movie);
 		if(result > 0) {
-			mav.setViewName("index");
+			mav.setViewName("redirect:/mView?movCode="+movie.getMovCode());
 		}else {
 			mav.setViewName("index");
 		}
-		System.out.println("[4]"+movie);
-		
+		System.out.println("[4]영화수정 : "+movie);
 		return mav;
 	}
 
-	public ModelAndView movDelete(String movCode) {
-		int result = mvdao.movDelete(movCode);
+	public ModelAndView movieModifyForm(String movCode) {
+		// TODO Auto-generated method stub
 		
-		if(result>0) {
-			mav.setViewName("index");
-		} else {
+		
+		MovieDTO movie = mvdao.mView(movCode);
+		
+		mav.addObject("movie",movie);
+		mav.setViewName("movieModify");
+		
+		return mav;
+	}
+	
+
+	public ModelAndView movieDelete(String movCode) {
+		// TODO Auto-generated method stub
+		
+		int result = mvdao.movieDelete(movCode);
+		if(result > 0) {
+			mav.setViewName("redirect:/movies");
+		}else {
 			mav.setViewName("index");
 		}
+		
 		return mav;
 	}
 	

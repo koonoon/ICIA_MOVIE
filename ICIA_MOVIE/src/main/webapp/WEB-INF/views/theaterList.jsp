@@ -130,8 +130,7 @@
 															<th scope="col">영화관 코드</th>
 															<th scope="col">영화관 이름</th>
 															<th scope="col">영화관 주소</th>
-															<th scope="col">상영관</th>
-															<th scope="col">좌석수</th>
+														
 															<th scope="col">수정</th>
 															<th scope="col">삭제</th>
 
@@ -143,8 +142,7 @@
 																<td>${tl.thCode}</td>
 																<td>${tl.thName}</td>
 																<td>${tl.thAddr}</td>
-																<td>${tl.thHall}</td>
-																<td>${tl.thSit}</td>
+																
 																<td><a style=color:#ff0000 href="thModiForm?thCode=${tl.thCode}">수정</a></td>	
 																<td><a style=color:#ff0000 href="thDelete?thCode=${tl.thCode}">삭제</a></td>	
 																

@@ -2,7 +2,6 @@ package com.icia.movie.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.icia.movie.dto.SchedulesDTO;
 import com.icia.movie.dto.TheaterDTO;
 import com.icia.movie.service.TheaterService;
 
@@ -62,6 +62,35 @@ public class TheaterController {
 		@RequestMapping(value = "/theaterModify", method = RequestMethod.POST)
 		public ModelAndView theaterModify(@ModelAttribute TheaterDTO theater) {
 			mav = thsvc.theaterModify(theater);
+			return mav;
+		}
+		
+		@RequestMapping(value = "/insertSch", method = RequestMethod.POST)
+		public ModelAndView insertSch(@ModelAttribute SchedulesDTO schedule) {
+			System.out.println("[1]"+schedule);
+			mav = thsvc.insertSch(schedule);
+			System.out.println("[5]"+mav);
+			return mav;
+		}
+		
+		// thList 스케줄 보기 메소드
+		@RequestMapping(value = "/thList", method = RequestMethod.GET)
+		public ModelAndView thList(){
+			System.out.println("[1]");
+			
+			mav = thsvc.thList();
+			
+			System.out.println("[5]"+mav);
+			return mav;
+		}
+		
+		@RequestMapping(value = "/thList2", method = RequestMethod.GET)
+		public ModelAndView thList2(){
+			System.out.println("[1]");
+			
+			mav = thsvc.thList2();
+			
+			System.out.println("[5]"+mav);
 			return mav;
 		}
 		

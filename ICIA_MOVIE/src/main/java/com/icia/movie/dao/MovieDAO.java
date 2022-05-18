@@ -37,16 +37,25 @@ public class MovieDAO {
 		return sql.selectOne("Movie.mView", movName);
 	}
 
-	public int movieModify(MovieDTO movie) {
+	public int movieDelete(String movCode) {
 		// TODO Auto-generated method stub
-		return sql.update("Movie.modi", movie);
-	}
-
-	public int movDelete(String movCode) {
-		// TODO Auto-generated method stub
+		sql.delete("Movie.mvrsDelete", movCode);
+		sql.delete("Movie.mvscDelete", movCode);
+		sql.delete("Movie.mvcmDelete", movCode);
 		return sql.delete("Movie.delete", movCode);
 	}
 
+	public int movieModify(MovieDTO movie) {
+		// TODO Auto-generated method stub
+		System.out.println("[3]영화수정 : "+movie);
+		return sql.update("Movie.modify",movie);
+	}
+
+	public List<MovieDTO> movieList2(PageDTO paging) {
+		// TODO Auto-generated method stub
+		return sql.selectList("Movie.list2",paging);
+	}
+	
 	public List<MovieDTO> mBook() {
 		
 		return sql.selectList("Movie.mBook");

@@ -8,7 +8,15 @@
 	</select>
 
 	<insert id="cWrite" parameterType="comm">
-		INSERT INTO COMMENTS VALUES(COMM_SEQ.NEXTVAL, #{cmCode}, #{cWriter}, #{cComment}, SYSDATE)
+		INSERT INTO COMMENTS VALUES(COMM_SEQ.NEXTVAL, #{cmCode}, #{cWriter}, #{cComment}, SYSDATE, #{cStarScore})
 	</insert>
+	
+	<select id="cnt" resultType="int">
+		SELECT COUNT(*) FROM COMMENTS
+	</select>
+	
+	<select id="cpList" parameterType="comm" resultType="comm">
+		SELECT * FROM CMLIST WHERE RN BETWEEN #{startRow} AND #{endRow} AND CMCODE = #{cmCode}
+	</select>
 
 </mapper>

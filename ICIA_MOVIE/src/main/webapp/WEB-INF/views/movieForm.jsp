@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- Basic Page Needs
 ================================================== -->
   <meta charset="utf-8">
@@ -35,152 +35,16 @@
   <link rel="stylesheet" href="resources/plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="resources/css/style.css">
-
+  
+  <link href="resources/css/memberInfo.css?ver=1" rel="stylesheet">
 </head>
 <body>
+<content class="regist-frame">
   <div class="body-inner">
+<c:choose>
+<c:when test="${not empty login.mId && login.mId eq 'admin'}">
+<jsp:include page="header.jsp"></jsp:include>
 
-<!-- Header start -->
-<header id="header" class="header-one">
-  <div class="bg-white">
-    <div class="container">
-      <div class="logo-area">
-          <div class="row align-items-center">
-            <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                <a class="d-block" href="index.html">
-                  <img loading="lazy" src="resources/images/logo.png" alt="Constra">
-                </a>
-            </div><!-- logo end -->
-  
-            <div class="col-lg-9 header-right">
-                <ul class="top-info-box">
-                  <li>
-                    <div class="info-box">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Call Us</p>
-                          <p class="info-box-subtitle"><a href="tel:(+9) 847-291-4353">(+9) 847-291-4353</a></p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="info-box">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Email Us</p>
-                          <p class="info-box-subtitle"><a href="mailto:office@Constra.com">office@Constra.com</a></p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="last">
-                    <div class="info-box last">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Global Certificate</p>
-                          <p class="info-box-subtitle">ISO 9001:2017</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="header-get-a-quote">
-                    <a class="btn btn-primary" href="contact.html">Get A Quote</a>
-                  </li>
-                </ul><!-- Ul end -->
-            </div><!-- header right end -->
-          </div><!-- logo area end -->
-  
-      </div><!-- Row end -->
-    </div><!-- Container end -->
-  </div>
-
-  <div class="site-navigation">
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-              <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div id="navbar-collapse" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav mr-auto">
-                      <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
-                      <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
-                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
-                      <li class="nav-item"><a class="nav-link" href="">회원가입</a></li>
-                      <!-- <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="team.html">Our People</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Projects <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="projects.html">Projects All</a></li>
-                            <li><a href="projects-single.html">Projects Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="services.html">Services All</a></li>
-                            <li><a href="service-single.html">Services Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Parent Menu</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#!">Child Menu 1</a></li>
-                                  <li><a href="#!">Child Menu 2</a></li>
-                                  <li><a href="#!">Child Menu 3</a></li>
-                                </ul>
-                            </li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">News <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="news-left-sidebar.html">News Left Sidebar</a></li>
-                            <li><a href="news-right-sidebar.html">News Right Sidebar</a></li>
-                            <li><a href="news-single.html">News Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
-                    </ul>
-                </div>
-              </nav>
-          </div>
-          <!--/ Col end -->
-        </div>
-        <!--/ Row end -->
-
-        <div class="nav-search">
-          <span id="search"><i class="fa fa-search"></i></span>
-        </div><!-- Search end -->
-
-        <div class="search-block" style="display: none;">
-          <label for="search-field" class="w-100 mb-0">
-            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
-          </label>
-          <span class="search-close">&times;</span>
-        </div><!-- Site search end -->
-    </div>
-    <!--/ Container end -->
-  </div>
-  <!--/ Navigation end -->
-</header>
-<!--/ Header end -->
 <div id="banner-area" class="banner-area" style="background-image:url(resources/images/banner/a.PNG)">
   <div class="banner-text">
     <div class="container">
@@ -199,11 +63,10 @@
 <section id="main-container" class="main-container pb-2">
   <div class="container">
     <div class="row">
-    
 
         <div class="comments-form border-box">
           <h3 class="title-normal">영화 등록</h3>
-		<form action="movieInsert" method="POST" enctype="multipart/form-data"  role="form">
+		<form action="movieInsert" method="POST" enctype="multipart/form-data"  role="form" >
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
@@ -237,13 +100,13 @@
                   <input class="form-control" id="website"  type="date" required name="movOpen"></label>
                 </div>
               </div>
-               <div class="col-md-12">
+              <div class="col-md-12">
                 <div class="form-group">
                   <label for="website" class="w-100"><span>영화 줄거리</span>
                   <textarea class="form-control" id="website"  required name="movStory"></textarea></label>
                 </div>
-              </div>
-              <div class="col-md-12">
+              </div> 
+               <div class="col-md-12">
                 <div class="form-group">
                   <label for="website" class="w-100"><span>영화 포스터</span>    
                   <input class="form-control" id="website" placeholder="Your Website" type="file" required name="movPosterFile"></label>
@@ -252,7 +115,7 @@
 				<br/>
             </div><!-- Form row end -->
             <div class="clearfix">
-              <button class="btn btn-primary" type="submit" aria-label="post-comment">등록</button>
+              <button class="btn btn-primary" type="submit" aria-label="post-comment">Post Comment</button>
             </div>
           </form><!-- Form end -->
         </div><!-- Comments form end -->
@@ -261,7 +124,7 @@
     </div><!-- Main row end -->
   </div><!-- Conatiner end -->
 </section><!-- Main container end -->
-
+</content>
   <footer id="footer" class="footer bg-overlay">
     <div class="footer-main">
       <div class="container">
@@ -342,7 +205,16 @@
       </div><!-- Container end -->
     </div><!-- Copyright end -->
   </footer><!-- Footer end -->
-
+	</c:when>	
+		<c:otherwise>
+			<script>
+				$(document).ready( function () {
+					popUpMessage();
+				});
+			</script>
+		</c:otherwise>
+	</c:choose>
+	
 
   <!-- Javascript Files
   ================================================== -->
@@ -370,5 +242,39 @@
 
   </div><!-- Body inner end -->
   </body>
+ <script>
+
+ const modal = document.createElement("div");
+ const messageBox = document.createElement("div");
+ const messageBtn = document.createElement("button");
+ const messageBtn2 = document.createElement("button");
+ const message = document.createElement("span");
+ const content = document.querySelector(".regist-frame");
+ const input = document.createElement("input");
+ input.value = "";
+
+ function popUpMessage(){
+ 	modal.className = "modal2";
+ 	messageBox.id = "message-box";
+ 	messageBtn.id = "popup-button";
+ 	messageBtn2.id = "popup-button2";
+ 	
+ 	messageBtn.innerText = "확인";
+ 	messageBtn2.innerText = "취소";
+ 	
+ 	content.appendChild(modal); 
+ 	modal.appendChild(messageBox);
+ 	messageBox.appendChild(message);
+ 	messageBox.appendChild(messageBtn);
+
+ 		message.innerText = "관리자 전용 페이지입니다.";
+ 		
+ 		messageBtn.addEventListener("click",()=>{
+ 			
+ 			location.href='/movie/';
+ 		});	
+ 	
+ }
+</script>
 
   </html>

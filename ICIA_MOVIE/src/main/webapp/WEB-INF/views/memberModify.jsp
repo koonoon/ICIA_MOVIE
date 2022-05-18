@@ -69,12 +69,11 @@
           <div class="widget">
             <h3 class="widget-title">메뉴</h3>
             <ul class="nav service-menu">
-              <li class="active"><a href="memberInfo?mId=${login.mId}">나의 회원정보</a></li>
-              <li><a href="#">나의 예매정보</a></li>
-              <li><a href="#">Interior Design</a></li>
-              <li><a href="#">Exterior Design</a></li>
-              <li><a href="#">Renovation</a></li>
-              <li><a href="#">Safety Management</a></li>
+              
+                <li class="active"><a href="memberInfo?mId=${login.mId}">나의 회원정보</a></li>
+              <li ><a href="reserveInfo?mId=${login.mId}">나의 예매정보</a></li>
+    
+     
             </ul>
           </div><!-- Widget end -->
 

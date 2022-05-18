@@ -66,23 +66,29 @@ public class MovieController {
 		return mav;
 	}
 
-	//movModiForm
-	@RequestMapping(value="/movModiForm", method = RequestMethod.GET)
-	public ModelAndView movModiForm(@RequestParam("movCode")String movCode) {
+	// movieModifyForm
+		@GetMapping(value = "/movieModify")
+		public ModelAndView movieModifyForm(@RequestParam("movCode") String movCode) {
+			
+			mav = mvsvc.movieModifyForm(movCode);
+			
+			return mav;
+		}
 		
-		mav = mvsvc.movModiForm(movCode);
-		return mav;
-	}
+		// movieModify
+		@PostMapping(value = "/mView/modify")
+		public ModelAndView movieModify(@ModelAttribute MovieDTO movie) throws IllegalStateException, IOException {
+			System.out.println("[1]영화수정 : "+movie);
+			mav = mvsvc.movieModify(movie);
+			System.out.println("[5]영화수정 : "+mav);
+			return mav;
+		}
 	
-	@RequestMapping(value = "/movieModify", method = RequestMethod.POST)
-	public ModelAndView movieModify(@ModelAttribute MovieDTO movie) throws IllegalStateException, IOException {
-		mav = mvsvc.movieModify(movie);
-		return mav;
-	}
-	
-	@RequestMapping(value ="movDelete", method = RequestMethod.GET)
-	public ModelAndView movDelete(@RequestParam("movCode")String movCode) {
-		mav = mvsvc.movDelete(movCode);
+	@GetMapping(value = "mView/delete")
+	public ModelAndView movieDelete(@RequestParam("movCode") String movCode) {
+		
+		mav = mvsvc.movieDelete(movCode);
+		
 		return mav;
 	}
 	
@@ -90,5 +96,11 @@ public class MovieController {
 	public ModelAndView movieReserve(){
 		mav = mvsvc.movieReserve();
 		return mav;
+	}
+	
+	@RequestMapping(value = "/movieReserve/theater", method = RequestMethod.GET)
+	public String reserveTheater(){
+		
+		return "";
 	}
 }

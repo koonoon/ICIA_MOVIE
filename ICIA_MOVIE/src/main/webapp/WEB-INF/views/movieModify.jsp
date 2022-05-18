@@ -39,155 +39,14 @@
 </head>
 <body>
   <div class="body-inner">
-
-<!-- Header start -->
-<header id="header" class="header-one">
-  <div class="bg-white">
-    <div class="container">
-      <div class="logo-area">
-          <div class="row align-items-center">
-            <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                <a class="d-block" href="index.html">
-                  <img loading="lazy" src="resources/images/logo.png" alt="Constra">
-                </a>
-            </div><!-- logo end -->
-  
-            <div class="col-lg-9 header-right">
-                <ul class="top-info-box">
-                  <li>
-                    <div class="info-box">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Call Us</p>
-                          <p class="info-box-subtitle"><a href="tel:(+9) 847-291-4353">(+9) 847-291-4353</a></p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="info-box">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Email Us</p>
-                          <p class="info-box-subtitle"><a href="mailto:office@Constra.com">office@Constra.com</a></p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="last">
-                    <div class="info-box last">
-                      <div class="info-box-content">
-                          <p class="info-box-title">Global Certificate</p>
-                          <p class="info-box-subtitle">ISO 9001:2017</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="header-get-a-quote">
-                    <a class="btn btn-primary" href="contact.html">Get A Quote</a>
-                  </li>
-                </ul><!-- Ul end -->
-            </div><!-- header right end -->
-          </div><!-- logo area end -->
-  
-      </div><!-- Row end -->
-    </div><!-- Container end -->
-  </div>
-
-  <div class="site-navigation">
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-              <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div id="navbar-collapse" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav mr-auto">
-                      <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
-                      <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
-                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
-                      <li class="nav-item"><a class="nav-link" href="">회원가입</a></li>
-                      <!-- <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="team.html">Our People</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Projects <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="projects.html">Projects All</a></li>
-                            <li><a href="projects-single.html">Projects Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="services.html">Services All</a></li>
-                            <li><a href="service-single.html">Services Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Parent Menu</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#!">Child Menu 1</a></li>
-                                  <li><a href="#!">Child Menu 2</a></li>
-                                  <li><a href="#!">Child Menu 3</a></li>
-                                </ul>
-                            </li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">News <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="news-left-sidebar.html">News Left Sidebar</a></li>
-                            <li><a href="news-right-sidebar.html">News Right Sidebar</a></li>
-                            <li><a href="news-single.html">News Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
-                    </ul>
-                </div>
-              </nav>
-          </div>
-          <!--/ Col end -->
-        </div>
-        <!--/ Row end -->
-
-        <div class="nav-search">
-          <span id="search"><i class="fa fa-search"></i></span>
-        </div><!-- Search end -->
-
-        <div class="search-block" style="display: none;">
-          <label for="search-field" class="w-100 mb-0">
-            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
-          </label>
-          <span class="search-close">&times;</span>
-        </div><!-- Site search end -->
-    </div>
-    <!--/ Container end -->
-  </div>
-  <!--/ Navigation end -->
-</header>
-<!--/ Header end -->
+<jsp:include page="header.jsp"></jsp:include>
 <div id="banner-area" class="banner-area" style="background-image:url(resources/images/banner/a.PNG)">
   <div class="banner-text">
     <div class="container">
         <div class="row">
           <div class="col-lg-12">
               <div class="banner-heading">
-                <h1 class="banner-title">영화 등록</h1>
+                <h1 class="banner-title">영화 수정</h1>
               
               </div>
           </div><!-- Col end -->
@@ -199,66 +58,65 @@
 <section id="main-container" class="main-container pb-2">
   <div class="container">
     <div class="row">
-    
-
         <div class="comments-form border-box">
-          <h3 class="title-normal">영화 등록</h3>
-		<form action="movieModify" method="POST" enctype="multipart/form-data"  role="form">
+          <h3 class="title-normal">영화 수정</h3>
+		<form action="mView/modify" method="POST" enctype="multipart/form-data"  role="form" >
+			  <input value="${movie.movCode}" type="hidden" required name="movCode">
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="name" class="w-100"><span>영화 제목</span>
-                  <input class="form-control"id="name" placeholder="영화 제목" type="text" required name="movName"></label>
+                  <input class="form-control"id="name" value="${movie.movName}" placeholder="영화 제목" type="text" required name="movName"></label>
                 </div>
               </div><!-- Col 4 end -->
 				<br/>
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="email" class="w-100"><span>영화 감독</span>
-                  <input class="form-control" id="email" placeholder="영화 감독" type="text" required name="movDirector"></label>
+                  <input class="form-control" id="email" value="${movie.movDirector}" placeholder="영화 감독" type="text" required name="movDirector"></label>
                 </div>
               </div>
 				<br/>
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="website" class="w-100"><span>영화 장르</span>
-                  <input class="form-control" id="website" placeholder="장르" type="text" required name="movGenre"></label>
+                  <input class="form-control" id="website" value="${movie.movGenre}" placeholder="장르" type="text" required name="movGenre"></label>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="website" class="w-100"><span>영화 관람등급</span>
-                  <input class="form-control" id="website" placeholder="관람등급(나이)" type="number" required name="movGrade"></label>
+                  <input class="form-control" id="website" value="${movie.movGrade}" placeholder="관람등급(나이)" type="number" required name="movGrade"></label>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="website" class="w-100"><span>영화 개봉일</span>
-                  <input class="form-control" id="website"  type="date" required name="movOpen"></label>
-                </div>
-              </div>
-               <div class="col-md-12">
-                <div class="form-group">
-                  <label for="website" class="w-100"><span>영화 줄거리</span>
-                  <textarea class="form-control" id="website"  required name="movStory"></textarea></label>
+                  <input class="form-control" id="website" value="${movie.movOpen}"  type="date" required name="movOpen"></label>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group">
+                  <label for="website" class="w-100"><span>영화 줄거리</span>
+                  <textarea class="form-control" id="website"  required name="movStory">
+                  	${movie.movStory}
+                  </textarea></label>
+                </div>
+              </div> 
+               <div class="col-md-12">
+                <div class="form-group">
                   <label for="website" class="w-100"><span>영화 포스터</span>    
-                  <input class="form-control" id="website" placeholder="Your Website" type="file" required name="movPosterFile"></label>
+                  <input class="form-control" id="website" value="${movie.movPoster}" placeholder="Your Website" type="file" required name="movPosterFile"></label>
                 </div>
               </div>
 				<br/>
             </div><!-- Form row end -->
             <div class="clearfix">
-              <button class="btn btn-primary" type="submit" aria-label="post-comment">수정</button>
+              <button class="btn btn-primary" type="submit" aria-label="post-comment">영화 수정</button>
             </div>
-            <input type="hidden" value="${modi.movCode}" name="movCode"/>
           </form><!-- Form end -->
         </div><!-- Comments form end -->
       
-
     </div><!-- Main row end -->
   </div><!-- Conatiner end -->
 </section><!-- Main container end -->

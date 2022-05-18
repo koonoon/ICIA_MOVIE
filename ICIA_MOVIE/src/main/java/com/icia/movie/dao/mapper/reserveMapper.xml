@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Reserve">
+	
+	<select id="thList" parameterType="String" resultType="schedule"> 
+		SELECT * FROM THEATERS T, SCHEDULES S, MOVIES M WHERE T.THCODE = S.SCTHCODE AND M.MOVCODE = S.SCMOVCODE AND M.MOVCODE IN #{movCode}
+	</select>
+	
+	<select id="scList" parameterType="schedule" resultType="schedule">
+		SELECT * FROM THEATERS T, SCHEDULES S, MOVIES M WHERE T.THCODE = S.SCTHCODE AND M.MOVCODE = S.SCMOVCODE AND M.MOVCODE IN S.SCMOVCODE AND S.SCMOVCODE=#{scMovcode} AND S.SCTHCODE = #{scThcode} AND S.SCHALL = #{scHall} AND S.SCTIME > SYSDATE
+	</select>
+
+	<insert id="rsInsert" parameterType="reserve">
+		INSERT INTO RESERVATION VALUES('R'||LPAD(RS_SEQ.NEXTVAL,3,0), #{rvMid}, #{rvSchall}, TO_DATE(#{scTime}, 'YYYY-MM-DD HH24:MI:SS'),#{rvScthcode},1,#{rvscMovcode})
+	</insert>
+	
+	<select id="rsInfo" parameterType="String" resultType="reserve">
+		SELECT DISTINCT RVCODE, RVMID, M.MNAME, MOVNAME , RVSCHALL, TO_CHAR(RVSCTIME, 'YYYY-MM-DD HH24:MI:SS') AS RVSCTIME, T.THNAME, RVCOUNT, MOVPOSTER, THNAME
+		FROM RESERVATION R, SCHEDULES S, THEATERS T,MEMBER M, MOVIES 
+		WHERE R.RVSCTHCODE = S.SCTHCODE AND S.SCTHCODE = T.THCODE AND M.MID = R.RVMID AND R.RVMOVCODE = MOVIES.MOVCODE AND RVMID = #{mId}
+	</select>
+
+	<delete id="rsDelete">
+		DELETE FROM RESERVATION WHERE RVCODE = #{rvCode}
+	</delete>
+	
+</mapper>

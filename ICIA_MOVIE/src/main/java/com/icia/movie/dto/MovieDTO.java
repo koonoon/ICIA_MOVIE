@@ -15,6 +15,7 @@ public class MovieDTO {
 	private MultipartFile movPosterFile;
 	private String movPoster;
 	private String movStory;
+	private int movStarScore;
 	public String getMovCode() {
 		return movCode;
 	}
@@ -69,15 +70,23 @@ public class MovieDTO {
 	public void setMovStory(String movStory) {
 		this.movStory = movStory;
 	}
+	public int getMovStarScore() {
+		return movStarScore;
+	}
+	public void setMovStarScore(int movStarScore) {
+		this.movStarScore = movStarScore;
+	}
 	@Override
 	public String toString() {
 		return "MovieDTO [movCode=" + movCode + ", movName=" + movName + ", movDirector=" + movDirector + ", movGenre="
 				+ movGenre + ", movGrade=" + movGrade + ", movOpen=" + movOpen + ", movPosterFile=" + movPosterFile
-				+ ", movPoster=" + movPoster + ", movStory=" + movStory + "]";
+				+ ", movPoster=" + movPoster + ", movStory=" + movStory + ", movStarScore=" + movStarScore + "]";
 	}
 	
 	
 	
+
+
 	
-	
+
 }

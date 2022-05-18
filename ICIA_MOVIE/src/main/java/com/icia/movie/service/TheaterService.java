@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.icia.movie.dao.TheaterDAO;
+import com.icia.movie.dto.SchedulesDTO;
 import com.icia.movie.dto.TheaterDTO;
+
 
 @Service
 public class TheaterService {
@@ -69,7 +71,42 @@ public class TheaterService {
 		return mav;
 	}
 
-	
+public ModelAndView insertSch(SchedulesDTO schedule) {
+		
+		int result = thdao.insertSch(schedule);
+		
+		if(result > 0 ) {
+			mav.setViewName("InsertSch");
+		} else {
+			mav.setViewName("InsertSch");
+		}
+		
+		
+		return mav;
+	}
+
+	public ModelAndView thList() {
+		System.out.println("[2]");
+		List<SchedulesDTO> thList = thdao.thList();
+		
+		mav.setViewName("InsertSch");
+		mav.addObject("thList",thList);
+		
+		System.out.println("[4]" + thList);
+		return mav;
+	}
+
+	public ModelAndView thList2() {
+		System.out.println("[2]");
+		List<SchedulesDTO> thList2 = thdao.thList2();
+		
+		mav.setViewName("InsertSch");
+		mav.addObject("thList2",thList2);
+		
+		System.out.println("[4]" + thList2);
+		return mav;
+
+	}
 	
 	
 }

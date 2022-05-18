@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="resources/plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/star.css?ver=1">
 
 <style type="text/css">
 	#mvPage{
@@ -49,106 +50,13 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 
-  <div class="site-navigation">
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-              <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div id="navbar-collapse" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav mr-auto">
-                      <li class="nav-item"><a class="nav-link" href="/movie/">메인</a></li>
-                      <li class="nav-item"><a class="nav-link" href="">예매하기</a></li>
-                      <li class="nav-item"><a class="nav-link" href="movies">상영 목록</a></li>
-                      <li class="nav-item"><a class="nav-link" href="">회원가입</a></li>
-                      <!-- <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="team.html">Our People</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Projects <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="projects.html">Projects All</a></li>
-                            <li><a href="projects-single.html">Projects Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="services.html">Services All</a></li>
-                            <li><a href="service-single.html">Services Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li class="dropdown-submenu">
-                                <a href="#!" class="dropdown-toggle" data-toggle="dropdown">Parent Menu</a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#!">Child Menu 1</a></li>
-                                  <li><a href="#!">Child Menu 2</a></li>
-                                  <li><a href="#!">Child Menu 3</a></li>
-                                </ul>
-                            </li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">News <i class="fa fa-angle-down"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="news-left-sidebar.html">News Left Sidebar</a></li>
-                            <li><a href="news-right-sidebar.html">News Right Sidebar</a></li>
-                            <li><a href="news-single.html">News Single</a></li>
-                          </ul>
-                      </li>
-              
-                      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
-                    </ul>
-                </div>
-              </nav>
-          </div>
-          <!--/ Col end -->
-        </div>
-        <!--/ Row end -->
-
-        <div class="nav-search">
-          <span id="search"><i class="fa fa-search"></i></span>
-        </div><!-- Search end -->
-
-        <div class="search-block" style="display: none;">
-          <label for="search-field" class="w-100 mb-0">
-            <input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
-          </label>
-          <span class="search-close">&times;</span>
-        </div><!-- Site search end -->
-    </div>
-    <!--/ Container end -->
-
-  </div>
-  <!--/ Navigation end -->
-</header>
-<!--/ Header end -->
 <div id="banner-area" class="banner-area" style="background-image:url(resources/images/banner/a.PNG)">
   <div class="banner-text">
     <div class="container">
         <div class="row">
           <div class="col-lg-12">
               <div class="banner-heading">
-                <h1 class="banner-title">현재 상영작</h1>
+                <h1 class="banner-title">상영 목록</h1>
               
               </div>
           </div><!-- Col end -->
@@ -163,8 +71,9 @@
     
     
     
-
-	 <c:forEach var="mov" items="${movieList}">
+    <c:if test="${not empty movieList2}">
+    	<c:forEach var="mov" items="${movieList2}">
+	 
 		 <div class="col-lg-4 col-md-6 mb-5">
 	        <div class="ts-service-box">
 	            <div class="ts-service-image-wrapper">
@@ -172,26 +81,54 @@
 	            </div>
 	            <div class="d-flex">
 	              <div class="ts-service-info">
-	                  <h3 class="service-box-title"><a href="mView?movCode=${mov.movCode}">${mov.movName}</a></h3>
-						<p>감독 : ${mov.movDirector}</p>
-						<p>개봉일 : ${mov.movOpen}</p>
-						<p>관람등급 : ${mov.movGrade}세 이상 관람가</p>
-	                  <a class="learn-more d-inline-block"  aria-label="service-details">장르 : ${mov.movGenre}</a>
-	              		
+	                  <h3 class="service-box-title"><a href="service-single.html"><a href="mView?movCode=${mov.movCode}">${mov.movName}</a></h3>
+	                  <p><span class='star'>★★★★★ 
+	                  		<span style="width:${mov.movStarScore}%"> ★★★★★
+	                   		</span>
+  		  			  </span></p>
+	                  
+	                  <p>${mov.movStory}</p>
+	                  <a class="learn-more d-inline-block"  aria-label="service-details"> ${mov.movGenre}</a>
+	                  <li class="header-get-a-quote" style="list-style-type: none;">
+                    	<a class="btn btn-primary" href="movieReserve">예매하기</a>
+                    	<a class="btn btn-primary" href="mView?movCode=${mov.movCode}">상세보기</a>
+                  	  </li>
+                 
 	              </div>
 	            </div>
-	            <c:if test="${login.mId eq 'admin'}">
-	            <input type="button" value="수정" onclick="location.href='movModiForm?movCode=${mov.movCode}'"/>
-	            <input type="button" value="삭제" onclick="location.href='movDelete?movCode=${mov.movCode}'"/>
-	            </c:if>
+	        </div><!-- Service1 end -->
+	      </div><!-- Col 1 end -->
+	 </c:forEach>
+    </c:if>
+  
+	 <c:forEach var="mov" items="${movieList}">
+	 
+		 <div class="col-lg-4 col-md-6 mb-5">
+	        <div class="ts-service-box">
+	            <div class="ts-service-image-wrapper">
+	              <img loading="lazy" class="w-100" src="resources/poster/${mov.movPoster}" alt="service-image">
+	            </div>
+	            <div class="d-flex">
+	              <div class="ts-service-info">
+	                  <h3 class="service-box-title"><a href="service-single.html"><a href="mView?movCode=${mov.movCode}">${mov.movName}</a></a></h3>
+	                  <p><span class='star'>★★★★★
+	                  		<span style="width:${mov.movStarScore}%"> ★★★★★ 
+	                   		</span>
+  		  			  </span></p> ${(mov.movStarScore)/10}점	                  
+	                  <p>${mov.movStory}</p>
+	                  <a class="learn-more d-inline-block"  aria-label="service-details"> ${mov.movGenre}</a>
+	                  <li class="header-get-a-quote" style="list-style-type: none;">
+                    	<a class="btn btn-primary" href="movieReserve">예매하기</a>
+                    	<a class="btn btn-primary" href="mView?movCode=${mov.movCode}">상세보기</a>
+                  	  </li>
+	                  
+	              </div>
+	            </div>
 	        </div><!-- Service1 end -->
 	      </div><!-- Col 1 end -->
 	 </c:forEach>
       
-      
-    
-
-      
+           
 
     </div><!-- Main row end -->
     
@@ -340,7 +277,8 @@
   <script src="resources/plugins/google-map/map.js" defer></script>
 
   <!-- Template custom -->
-  <script src="js/script.js"></script>
+  <script src="resources/js/script.js"></script>
+  <script defer src="resources/js/star.js?ver=1"></script>
 
   </div><!-- Body inner end -->
   </body>

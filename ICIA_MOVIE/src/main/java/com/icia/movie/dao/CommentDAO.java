@@ -23,4 +23,9 @@ public class CommentDAO {
 		
 		return sql.insert("Comment.cWrite", comm);
 	}
+	
+	public int commCnt() {
+		// TODO Auto-generated method stub
+		return sql.selectOne("Comment.cnt");
+	}
 }

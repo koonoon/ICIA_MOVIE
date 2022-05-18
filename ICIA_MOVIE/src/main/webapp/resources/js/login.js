@@ -85,7 +85,8 @@ function popUpMessage(data){
 
 	messageBtn.addEventListener("click",()=> {
 
-	    modal.remove()
+	    modal.remove();
+	    
 	    if(data.check == true){
 	     location.href="/movie/";
 	    }

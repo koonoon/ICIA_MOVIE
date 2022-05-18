@@ -4,7 +4,7 @@
 <mapper namespace="Theater">
 
 	<insert id="insert" parameterType="theater">
-		INSERT INTO THEATERS VALUES('TH'||LPAD(THEATER_SEQ.NEXTVAL,2,0), #{thName}, #{thAddr}, #{thHall}, #{thSit})
+		INSERT INTO THEATERS VALUES('TH'||LPAD(THEATER_SEQ.NEXTVAL,2,0), #{thName}, #{thAddr})
 	</insert>
 
 	<select id="list" resultType="theater">
@@ -23,4 +23,17 @@
 		UPDATE THEATERS SET THNAME = #{thName}, THADDR = #{thAddr}, THHALL = #{thHall}, THSIT = #{thSit} 
 		WHERE THCODE = #{thCode}
 	</update>
+	
+	<insert id="schedule" parameterType="schedule">
+		INSERT INTO SCHEDULES
+		VALUES(#{scHall}, TO_DATE(#{inScTime},'YYYY-MM-DD HH24:MI:SS'), #{thCode},#{movCode})
+	</insert>
+	
+	<select id = "thList" resultType = "schedule">
+		 SELECT * FROM THEATERS
+	</select>
+	
+	<select id = "thList2" resultType = "schedule">
+		 SELECT * FROM MOVIES
+	</select>
 </mapper>

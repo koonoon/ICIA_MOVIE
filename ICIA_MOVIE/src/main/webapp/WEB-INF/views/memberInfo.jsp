@@ -9,13 +9,12 @@
 ================================================== -->
   <meta charset="utf-8">
   <title>Constra - Construction Html5 Template</title>
-
   <!-- Mobile Specific Metas
 ================================================== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Construction Html5 Template">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- Favicon
 ================================================== -->
   <link rel="icon" type="resources/image/png" href="resources/images/favicon.png">
@@ -35,11 +34,14 @@
   <link rel="stylesheet" href="resources/plugins/colorbox/colorbox.css">
   <!-- Template styles-->
   <link rel="stylesheet" href="resources/css/style.css">
+  <link href="resources/css/memberInfo.css?ver=1" rel="stylesheet">
 
 </head>
 <body>
+<content class="regist-frame">
   <div class="body-inner">
-
+<c:choose>
+<c:when test="${(not empty login.mId && login.mId eq info.mId) || login.mId eq 'admin'}">
 
     <jsp:include page="header.jsp"></jsp:include>
 
@@ -69,11 +71,8 @@
             <h3 class="widget-title">메뉴</h3>
             <ul class="nav service-menu">
               <li class="active"><a href="memberInfo?mId=${login.mId}">나의 회원정보</a></li>
-              <li><a href="#">나의 예매정보</a></li>
-              <li><a href="#">Interior Design</a></li>
-              <li><a href="#">Exterior Design</a></li>
-              <li><a href="#">Renovation</a></li>
-              <li><a href="#">Safety Management</a></li>
+              <li><a href="reserveInfo?mId=${login.mId}">나의 예매정보</a></li>
+     
             </ul>
           </div><!-- Widget end -->
 
@@ -186,7 +185,9 @@
     </div><!-- Main row end -->
   </div><!-- Conatiner end -->
 </section><!-- Main container end -->
+</content>
 
+	
   <footer id="footer" class="footer bg-overlay">
     <div class="footer-main">
       <div class="container">
@@ -267,11 +268,18 @@
       </div><!-- Container end -->
     </div><!-- Copyright end -->
   </footer><!-- Footer end -->
-
+	</c:when>	
+		<c:otherwise>
+			<script>
+				$(document).ready( function () {
+					popUpMessage();
+				});
+			</script>
+		</c:otherwise>
+	</c:choose>
 
   <!-- Javascript Files
   ================================================== -->
-
   <!-- initialize jQuery Library -->
   <script src="resources/plugins/jQuery/jquery.min.js"></script>
   <!-- Bootstrap jQuery -->
@@ -284,16 +292,51 @@
   <!-- shuffle -->
   <script src="resources/plugins/shuffle/shuffle.min.js" defer></script>
 
-
   <!-- Google Map API Key-->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
   <!-- Google Map Plugin-->
   <script src="resources/plugins/google-map/map.js" defer></script>
-
   <!-- Template custom -->
   <script src="resources/js/script.js"></script>
-
+  
   </div><!-- Body inner end -->
+
+ <script>
+
+
+ const modal = document.createElement("div");
+ const messageBox = document.createElement("div");
+ const messageBtn = document.createElement("button");
+ const messageBtn2 = document.createElement("button");
+ const message = document.createElement("span");
+ const content = document.querySelector(".regist-frame");
+ const input = document.createElement("input");
+ input.value = "";
+
+ function popUpMessage(){
+ 	modal.className = "modal2";
+ 	messageBox.id = "message-box";
+ 	messageBtn.id = "popup-button";
+ 	messageBtn2.id = "popup-button2";
+ 	
+ 	messageBtn.innerText = "확인";
+ 	messageBtn2.innerText = "취소";
+ 	
+ 	content.appendChild(modal); 
+ 	modal.appendChild(messageBox);
+ 	messageBox.appendChild(message);
+ 	messageBox.appendChild(messageBtn);
+
+ 		message.innerText = "해당 아이디로 로그인 해주세요.";
+ 		
+ 		messageBtn.addEventListener("click",()=>{
+ 			
+ 			location.href='loginForm';
+ 		});	
+ 	
+ }
+</script>
+
   </body>
 
   </html>

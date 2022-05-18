@@ -5,7 +5,7 @@
 <mapper namespace="Movie">
 	
 	<insert id="insert" parameterType="movie">
-		INSERT INTO MOVIES VALUES('MV'||LPAD(MOVIE_SEQ.NEXTVAL,4,0),  #{movName},  #{movDirector}, #{movGenre},  #{movGrade}, #{movOpen}, #{movStory}, #{movPoster, jdbcType=VARCHAR})
+		INSERT INTO MOVIES VALUES('MV'||LPAD(MOVIE_SEQ.NEXTVAL,4,0),  #{movName},  #{movDirector}, #{movGenre},  #{movGrade}, #{movOpen}, #{movPoster, jdbcType=VARCHAR}, #{movStory}, 0)
 	</insert>
 	
 	<select id="count" resultType="int">
@@ -13,21 +13,36 @@
 	</select>
 	
 	<select id="list" parameterType="paging" resultType="movie">
-		SELECT * FROM MVLIST WHERE RN BETWEEN #{startRow} AND #{endRow} 
+		SELECT MOVCODE, MOVNAME, MOVDIRECTOR, MOVGENRE, MOVGRADE, MOVPOSTER, TRUNC(AVG(CSTARSCORE)*10)*2 AS MOVSTARSCORE FROM MVLIST M , COMMENTS C WHERE M.MOVCODE = C.CMCODE AND RN BETWEEN #{startRow} AND #{endRow} GROUP BY MOVCODE, MOVNAME, MOVDIRECTOR, MOVGENRE, MOVGRADE, MOVPOSTER
+	</select>
+	
+	<select id="list2" parameterType="paging" resultType="movie">
+		SELECT * FROM MVLIST WHERE RN BETWEEN #{startRow} AND #{endRow} AND MOVCODE NOT IN (SELECT CMCODE FROM COMMENTS)
 	</select>
 	
 	<select id="mView" parameterType="String" resultType="movie">
 		SELECT * FROM MOVIES WHERE MOVCODE = #{movCode}
 	</select>
 	
-	<update id="modi" parameterType="movie">
-	 	UPDATE MOVIES SET MOVNAME=#{movName}, MOVDIRECTOR=#{movDirector}, MOVGENRE=#{movGenre}, MOVGRADE=#{movGrade},
-	 		MOVOPEN=#{movOpen}, MOVSTORY=#{movStory}, MOVPOSTER=#{movPoster}
-	 	WHERE MOVCODE=#{movCode}
+	<update id="modify" parameterType="movie">
+		UPDATE MOVIES SET MOVNAME = #{movName}, MOVDIRECTOR = #{movDirector}, MOVGENRE = #{movGenre}, MOVGRADE = #{movGrade},
+	 	MOVOPEN = #{movOpen}, MOVSTORY = #{movStory}, MOVPOSTER = #{movPoster} WHERE MOVCODE = #{movCode}
 	</update>
 
+	<delete id="mvscDelete" parameterType="String">
+		DELETE FROM SCHEDULES WHERE SCMOVCODE = #{movCode}
+	</delete>
+	
+	<delete id="mvrsDelete" parameterType="String">
+		DELETE FROM RESERVATION WHERE RVMOVCODE = #{movCode}
+	</delete>	
+	
+	<delete id="mvcmDelete" parameterType="String">
+		DELETE FROM COMMENTS WHERE CMCODE = #{movCode}
+	</delete>
+	
 	<delete id="delete" parameterType="String">
-		DELETE FROM MOVIES WHERE MOVCODE=#{movCode}
+		DELETE FROM MOVIES WHERE MOVCODE = #{movCode}
 	</delete>
 	
 	<select id="mBook" resultType="movie">

@@ -7,6 +7,9 @@ public class TheaterDTO {
 	private String thAddr;
 	private String thHall;
 	private String thSit;
+	
+	
+	
 	public String getThCode() {
 		return thCode;
 	}
